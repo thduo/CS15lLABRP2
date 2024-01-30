@@ -51,7 +51,6 @@ This is the code for ChatServer.java:
 ---
 
 This is the Server.java code in order to run the web with the port number:
----
 
 
         import java.io.IOException;
@@ -103,7 +102,6 @@ This is the Server.java code in order to run the web with the port number:
                 System.out.println("Server Started!");
                 }
         }
----
 
 
 * Task 2:
