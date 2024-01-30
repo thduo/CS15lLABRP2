@@ -2,8 +2,8 @@
 # Name: Duong Ngo
 # Professor: Joe Gibss Politz
 
-* Task 1:
-This is the code for ChatServer.java:
+* <u> Task 1:
+<u> This is the code for ChatServer.java:
 ---
 
     
@@ -50,7 +50,7 @@ This is the code for ChatServer.java:
 
 ---
 
-This is the Server.java code in order to run the web with the port number:
+<u> This is the Server.java code in order to run the web with the port number:
 
 
         import java.io.IOException;
@@ -104,13 +104,41 @@ This is the Server.java code in order to run the web with the port number:
         }
 
 
-* Task 2:
+* <u> Task 2:
   1. Initially, when we use no add commands yet for the web, it will appear with the message `No messages yet` as shown in image below.
   ![Image](NoCommandYet.png)
-  First, when running the web, it requires us 
-
-  3. Writing ChatServer web and using two add commands which are `DuongNgo: BonJour` and `Duong: How are you`. Images attached below showing that after writing two commands which
+  First, when running the web, it requires us to choose the port number so that it can run the program for example in the image shown below.
+  ![Image](RunPortNum.png)
+  2. Secondly, writing ChatServer web and using two add commands which are `DuongNgo: BonJour` and `Duong: How are you`. Images attached below showing that after writing two commands which
   are `/add-message?s=BonJour&user=DuongNgo` and `/add-message?s=How are you&user=Duong`.
   ![Image](afterTwoCommands.png)
+* Using the `/add-message?s=BonJour&user=DuongNgo`:
+* The method `url.getPath().contains("/add-message")` will be called. We pass the values of `String message = ""` in this case will be
+  `String message = "Bonjour"` and value of `user = ""` in this case will be `user = "DuongNgo"`. After the `for` loop, it will print the message added run by the code `chatHistory += user + ": " + message.replace("+", " ") + "\n";` and print out the String `DuongNgo: BonJour`.
+*Similarly, using the `/add-message?s=How are you&user=Duong` so the method `url.getPath().contains("/add-message")` will be called. By this line of code `String[] parameters = url.getQuery().split("&");`, it will split the String `How are you` and the user `Duong` so we can get space on our message printed out. After the `for` loop, it will print the message added run by the code `chatHistory += user + ": " + message.replace("+", " ") + "\n";` and print out the String `Duong: How are you`.
+* If the value changes, in the image shown below, if I use integer instead of string, I still get the same output printed.
+  ![Image](UsingInteger.png)
+  If I don't insert any port number in the terminal when running the program, it will show no port number error run by the code line  `if (args.length == 0) {
+    System.out.println("Missing port number! Try any number between 1024 to 49151");
+      return;
+  }`
+Because arg.length is zero as we pass no value to it, it will print out the error message.
+![Image](NoPortNum.png)
+
+<u> Task3: 
+*In the image shown below, it shows a public key path to my username which is `/home/linux/ieng6/oce/8d/d9ngo/.ssh/id_rsa.pub.`. 
+![Image](publickey.png)
+I have trouble accessing the private key path so it showed this image instead. I think I need to ask TA after the first submission of Lab2 Report. 
+![Image](error.png)
+
+<u> Task4: 
+This course is eye-opening for me due to my first time using terminal to run programs or websites. This is interesting to me because I 
+did not have to manually access files or webs manually by hands. There are several things I learned from this class in the first three weeks, but the most impressive thing I learned is to use `ssh` to connect our computer server to the UCSD server which is a remote room in the school. Additionally, by experiencing using the port number to share websites to my groupmates, I find it so cool to create lots of ideas about chatroom or places to share images in just one website. I'm looking forward to know more about how terminal works deep down in the computer system as well as improving my coding and problem solving skill. 
+
+
+
+
+
+
 
 
