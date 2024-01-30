@@ -6,48 +6,47 @@
   1. This is the code for ChatServer.java:
 ---
 **NOTE**
-import java.io.IOException;
-import java.net.URI;
+    
+    import java.io.IOException;
+    import java.net.URI;
 
-class ChatHandler implements URLHandler {
-    // Maintains the chat history
-    String chatHistory = "";
-
-    public String handleRequest(URI url) {
+    Class ChatHandler implements URLHandler {
+      String chatHistory = "";
+      public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return chatHistory.isEmpty() ? "No messages yet." : chatHistory;
-        } else if (url.getPath().contains("/add-message")) {
-            String[] parameters = url.getQuery().split("&");
-            String message = "", user = "";
+          return chatHistory.isEmpty() ? "No messages yet." : chatHistory;
+          } else if (url.getPath().contains("/add-message")) {
+              String[] parameters = url.getQuery().split("&");
+              String message = "", user = "";
 
-            for (String param : parameters) {
-                String[] keyValue = param.split("=");
-                if (keyValue[0].equals("s")) {
-                    message = keyValue[1];
-                } else if (keyValue[0].equals("user")) {
-                    user = keyValue[1];
-                }
+              for (String param : parameters) {
+                  String[] keyValue = param.split("=");
+                  if (keyValue[0].equals("s")) {
+                      message = keyValue[1];
+                  } else if (keyValue[0].equals("user")) {
+                      user = keyValue[1];
+                  }
             }
 
-            chatHistory += user + ": " + message.replace("+", " ") + "\n";
-            return chatHistory;
-        } else {
-            return "404 Not Found!";
+              chatHistory += user + ": " + message.replace("+", " ") + "\n";
+              return chatHistory;
+          } else {
+              return "404 Not Found!";
+            }
         }
-    }
-}
+      }
 
-class ChatServer {
-    public static void main(String[] args) throws IOException {
-        if (args.length == 0) {
-            System.out.println("Missing port number! Try any number between 1024 to 49151");
-            return;
-        }
+    Class ChatServer {
+      public static void main(String[] args) throws IOException {
+          if (args.length == 0) {
+              System.out.println("Missing port number! Try any number between 1024 to 49151");
+              return;
+          }
 
-        int port = Integer.parseInt(args[0]);
-        Server.start(port, new ChatHandler());
+          int port = Integer.parseInt(args[0]);
+          Server.start(port, new ChatHandler());
+      }
     }
-}
 
 ---
 
