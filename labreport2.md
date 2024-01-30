@@ -52,55 +52,57 @@ This is the code for ChatServer.java:
 
 This is the Server.java code in order to run the web with the port number:
 ---
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.URI;`
 
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
-import com.sun.net.httpserver.HttpServer;`
 
-interface URLHandler {
-    String handleRequest(URI url);
-}
+        import java.io.IOException;
+        import java.ioOutputStream;
+        import java.net.InetSocketAddress;
+        import java.net.URI;
+        
+        import com.sun.net.httpserver.HttpExchange;
+        import com.sun.net.httpserver.HttpHandler;
+        import com.sun.net.httpserver.HttpServer;
 
-class ServerHttpHandler implements HttpHandler {
-    URLHandler handler;
-    ServerHttpHandler(URLHandler handler) {
-      this.handler = handler;
-    }
-    public void handle(final HttpExchange exchange) throws IOException {
-        // form return body after being handled by program
-        try {
-            String ret = handler.handleRequest(exchange.getRequestURI());
-            // form the return string and write it on the browser
-            exchange.sendResponseHeaders(200, ret.getBytes().length);
-            OutputStream os = exchange.getResponseBody();
-            os.write(ret.getBytes());
-            os.close();
-        } catch(Exception e) {
-            String response = e.toString();
-            exchange.sendResponseHeaders(500, response.getBytes().length);
-            OutputStream os = exchange.getResponseBody();
-            os.write(response.getBytes());
-            os.close();
+        interface URLHandler {
+            String handleRequest(URI url);
         }
-    }
-}
 
-public class Server {
-    public static void start(int port, URLHandler handler) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
+        class ServerHttpHandler implements HttpHandler {
+            URLHandler handler;
+            ServerHttpHandler(URLHandler handler) {
+                this.handler = handler;
+        }
 
-        //create request entrypoint
-        server.createContext("/", new ServerHttpHandler(handler));
+        public void handle(final HttpExchange exchange) throws IOException {
+        // form return body after being handled by program
+            try {
+                String ret = handler.handleRequest(exchange.getRequestURI());
+                // form the return string and write it on the browser
+                exchange.sendResponseHeaders(200, ret.getBytes().length);
+                OutputStream os = exchange.getResponseBody();
+                os.write(ret.getBytes());
+                os.close();
+            } catch(Exception e) {
+                String response = e.toString();
+                exchange.sendResponseHeaders(500, response.getBytes().length);
+                OutputStream os = exchange.getResponseBody();
+                os.write(response.getBytes());
+                os.close();
+                }
+            }
+        }
+        public class Server {
+            public static void start(int port, URLHandler handler) throws IOException {
+                HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
 
-        //start the server
-        server.start();
-        System.out.println("Server Started!");
-    }
-}
+                //create request entrypoint
+                server.createContext("/", new ServerHttpHandler(handler));
+
+                //start the server
+                server.start();
+                System.out.println("Server Started!");
+                }
+        }
 ---
 
 
