@@ -126,12 +126,14 @@ Because arg.length is zero as we pass no value to it, it will print out the erro
 ![Image](NoPortNum.png)
 
 <u> Task3: 
+
 *In the image shown below, it shows a public key path to my username which is `/home/linux/ieng6/oce/8d/d9ngo/.ssh/id_rsa.pub.`. 
 ![Image](publickey.png)
 I have trouble accessing the private key path so it showed this image instead. I think I need to ask TA after the first submission of Lab2 Report. 
 ![Image](error.png)
 
 <u> Task4: 
+
 This course is eye-opening for me due to my first time using terminal to run programs or websites. This is interesting to me because I 
 did not have to manually access files or webs manually by hands. There are several things I learned from this class in the first three weeks, but the most impressive thing I learned is to use `ssh` to connect our computer server to the UCSD server which is a remote room in the school. Additionally, by experiencing using the port number to share websites to my groupmates, I find it so cool to create lots of ideas about chatroom or places to share images in just one website. I'm looking forward to know more about how terminal works deep down in the computer system as well as improving my coding and problem solving skill. 
 
