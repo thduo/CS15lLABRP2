@@ -5,7 +5,7 @@
 * Task 1:
 This is the code for ChatServer.java:
 ---
-**NOTE**
+
     
     import java.io.IOException;
     import java.net.URI;
@@ -52,8 +52,6 @@ This is the code for ChatServer.java:
 
 This is the Server.java code in order to run the web with the port number:
 ---
-**NOTE**
-
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
@@ -102,8 +100,8 @@ public class Server {
         server.start();
         System.out.println("Server Started!");
     }
-`}`
-
+}
+---
 
 
 * Task 2:
