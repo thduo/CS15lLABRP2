@@ -128,8 +128,11 @@ Because arg.length is zero as we pass no value to it, it will print out the erro
 <u> Task3: 
 
 *In the image shown below, it shows a public key path to my username which is `/home/linux/ieng6/oce/8d/d9ngo/.ssh/id_rsa.pub.`. 
+
 ![Image](publickey.png)
+
 I have trouble accessing the private key path so it showed this image instead. I think I need to ask TA after the first submission of Lab2 Report. 
+
 ![Image](error.png)
 
 <u> Task4: 
