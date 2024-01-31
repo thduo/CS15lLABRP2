@@ -3,7 +3,7 @@
 # Professor: Joe Gibss Politz
 
 * <u> Task 1:
-* 
+
 <u> This is the code for ChatServer.java:
 
 
